@@ -1,0 +1,19 @@
+.body{
+    display: flex;
+    flex-direction: column;
+}
+.header{
+    font-size: 48px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+.rpsButtons{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 100px;
+}
+.btn{
+    border: 1rem solid black;
+
+}

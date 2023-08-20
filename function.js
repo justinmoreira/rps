@@ -27,11 +27,8 @@ function checkWinner(playerSelection, computerSelection){
         return "Invalid input";
     }
 }
-function game(){
-    for(let i = 0; i < 5; i++){
-        let userInput = prompt("Rock, paper, scissors: ");
-        console.log(checkWinner(userInput, getComputerChoice()));
-    }
-}
 
-game();
+const btn = document.querySelector('#btn');
+btn.addEventListener('click', () => {
+    alert("hello world");
+});
