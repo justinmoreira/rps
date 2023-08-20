@@ -28,7 +28,9 @@ function checkWinner(playerSelection, computerSelection){
     }
 }
 
-const btn = document.querySelector('#btn');
-btn.addEventListener('click', () => {
-    alert("hello world");
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        console.log(checkWinner(button.id, getComputerChoice()));
+    });
 });
