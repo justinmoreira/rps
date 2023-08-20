@@ -12,8 +12,16 @@
     display: flex;
     justify-content: space-evenly;
     margin-top: 100px;
+    margin-bottom: 100px;
 }
-.btn{
-    border: 1rem solid black;
-
+button{
+    border: 0.4rem solid black;
+    font-size: 36px;
+}
+.results{
+    display: flex;
+    justify-content: space-between;
+}
+.playerScore, .compScore{
+    font-size: 24px;
 }

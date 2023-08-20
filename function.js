@@ -13,24 +13,55 @@ function checkWinner(playerSelection, computerSelection){
     if(computerSelection == "Rock" && playerSelection == "Scissors"
         || computerSelection == "Paper" && playerSelection == "Rock"
         || computerSelection == "Scissors" && playerSelection == "Paper"){
-            return "You Lose! " + computerSelection + " beats " + playerSelection;
+            return [("You Lose! " + computerSelection + " beats " + playerSelection), "L"];
     }
     else if(playerSelection == "Rock" && computerSelection == "Scissors"
     || playerSelection == "Paper" && computerSelection == "Rock"
     || playerSelection == "Scissors" && computerSelection == "Paper"){
-        return "You Win! " + playerSelection + " beats " + computerSelection;
+        return [("You Win! " + playerSelection + " beats " + computerSelection), "W"];
     }
     else if(playerSelection == computerSelection){
-        return "It's a tie!, you both picked " + playerSelection;
-    }
-    else{
-        return "Invalid input";
+        return [("It's a tie! you both picked " + playerSelection), "T"];
     }
 }
-
+let playerScore = 0;
+let compScore = 0;
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        console.log(checkWinner(button.id, getComputerChoice()));
+        const results = document.querySelector('#content');
+
+        const content = document.createElement('div');
+        let result = checkWinner(button.id, getComputerChoice());
+        content.textContent = result[0];       
+
+        results.appendChild(content);
+
+        if(result[1] == "W"){
+            playerScore++;
+            const left = document.querySelector('#playerScore');
+
+            const scoreLeft = document.createElement('div');
+            scoreLeft.textContent = playerScore;
+
+            left.appendChild(scoreLeft);
+            
+            if(playerScore == 5){
+                playerScore = 0;
+            }
+            
+        } else if (result[1] == "L"){
+            compScore++;
+            const right = document.querySelector('#compScore');
+
+            const scoreRight = document.createElement('div');
+            scoreRight.textContent = compScore;
+
+            right.appendChild(scoreRight);
+
+            if(compScore == 5){
+                compScore = 0;
+            }
+        }
     });
 });
