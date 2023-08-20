@@ -29,6 +29,9 @@ let compScore = 0;
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
+        let parent = document.getElementById('content');
+        parent.innerHTML = "";
+
         const results = document.querySelector('#content');
 
         const content = document.createElement('div');
@@ -38,6 +41,9 @@ buttons.forEach((button) => {
         results.appendChild(content);
 
         if(result[1] == "W"){
+            let parent = document.getElementById('playerScore');
+            parent.innerHTML = "";
+
             playerScore++;
             const left = document.querySelector('#playerScore');
 
@@ -45,12 +51,18 @@ buttons.forEach((button) => {
             scoreLeft.textContent = playerScore;
 
             left.appendChild(scoreLeft);
-            
+
             if(playerScore == 5){
-                playerScore = 0;
+                const returnMessage = document.querySelector('#returnMessage');
+                const message = document.createElement('div');
+                message.textContent = "You win!";
+                returnMessage.appendChild(message);
             }
             
         } else if (result[1] == "L"){
+            let parent = document.getElementById('compScore');
+            parent.innerHTML = "";
+
             compScore++;
             const right = document.querySelector('#compScore');
 
@@ -60,7 +72,10 @@ buttons.forEach((button) => {
             right.appendChild(scoreRight);
 
             if(compScore == 5){
-                compScore = 0;
+                const returnMessage = document.querySelector('#returnMessage');
+                const message = document.createElement('div');
+                message.textContent = "You lose!";
+                returnMessage.appendChild(message);
             }
         }
     });
